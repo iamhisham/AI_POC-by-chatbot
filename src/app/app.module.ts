@@ -10,9 +10,11 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserSegmentCreateComponent } from './user-segment-create/user-segment-create.component';
+import { ChatBotComponent } from './chat/chat-bot/chat-bot.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent, HomePageComponent, UserSegmentCreateComponent, ChatBotComponent],
   imports: [BrowserModule, FormsModule,
     ReactiveFormsModule,
     NgApexchartsModule, IonicModule.forRoot(), AppRoutingModule],
