@@ -1,0 +1,7 @@
+{
+  "name": "APOC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

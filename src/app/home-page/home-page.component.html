@@ -1,0 +1,99 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" style="display: flex;
+      justify-content: flex-end;" *ngIf="!itemVisible">
+        <ion-button id="trigger-button" (click)="itemVisible=true">
+          <ion-label>
+            Create
+          </ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" style="display: flex;justify-content: flex-end;">
+        <ion-button *ngIf="!isEditMode" (click)="this.isEditMode = !this.isEditMode;">
+          <ion-label>
+            EDIT
+          </ion-label>
+        </ion-button>
+        <ion-item fill="outline" lines="none" class="textbox" style="margin-right: 15px;" *ngIf="this.isEditMode">
+          <ion-label position="floating">EDIT</ion-label>
+          <ion-input name="name"></ion-input>
+        </ion-item>
+        <ion-button *ngIf="isEditMode" style="margin: 0;">
+          <ion-label>
+            OK
+          </ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6" offset="3">
+        <div>
+          <!-- <apx-chart [series]="variant.summary.sent.series" [chart]="variant.summary.sent.chart"
+            [plotOptions]="variant.summary.sent.plotOptions" [labels]="variant.summary.sent.labels"
+            [colors]="variant.summary.sent.colors" [legend]="variant.summary.sent.legend"
+            [tooltip]="variant.summary.sent.tooltip"></apx-chart> -->
+
+          <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [title]="chartOptions.title"></apx-chart>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-popover trigger="trigger-button" [backdropDismiss]="false" class="chatbot-popover">
+  <ng-template>
+    <ion-header>
+      <ion-item class="ion-text-center" style="--background: var(--ion-color-primary);" lines="none">
+        <p style="margin: 18px auto; color: #fff; ">CREATE</p>
+      </ion-item>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <ion-item fill="outline" lines="none" class="textbox" *ngIf="itemVisible">
+            <ion-label position="floating">FLOW CHART NAME</ion-label>
+            <ion-input name="name"></ion-input>
+          </ion-item>
+          <ion-button *ngIf="itemVisible" style="margin: 0;">
+            <ion-label>SEND</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-item fill="outline" lines="none" class="textbox" *ngIf="itemVisible">
+            <ion-label position="floating">FLOW CHART NAME</ion-label>
+            <ion-textarea name="name"></ion-textarea>
+            <ion-icon slot="end" name="send"></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-content>
+  </ng-template>
+</ion-popover> -->
+<ion-popover trigger="trigger-button" class="chatbot-popover" [ngClass]="{'maximized-popover': isMaximized}">
+  <ng-template>
+    <ion-header>
+      <ion-item class="ion-text-center" style="--background: var(--ion-color-primary);" lines="none">
+        <p style="margin: 18px auto; color: #fff; font-weight: 800;">Create</p>
+      </ion-item>
+      <ion-buttons slot="start">
+        <ion-button (click)="restoreDownPopover()" *ngIf="isMaximized">
+          <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="maximizePopover()" *ngIf="!isMaximized">
+          <ion-icon name="arrow-up-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-header>
+    <ion-content class="ion-no-padding" style="height: fit-content;">
+      <ion-item class="text-area-style" lines="none">
+      </ion-item>
+      <ion-item fill="outline" class="ion-no-padding rounded-border" style="padding: 10px;
+      --padding-start: 10px;" lines="none">
+        <ion-textarea class="customScroller" style="--padding-bottom: 23px;" placeholder="send message"></ion-textarea>
+        <ion-icon slot="end" name="send" style=" color: var(--ion-color-primary) ;"></ion-icon>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-popover>

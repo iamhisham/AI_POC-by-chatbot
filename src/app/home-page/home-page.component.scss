@@ -1,0 +1,39 @@
+@import "../../theme/form.scss";
+
+.chatbot-textarea {
+  --padding-start: 10px !important;
+  --padding-top: 4px !important;
+  --padding-bottom: 13px !important;
+  // margin: 0px 14px 0px 0px;
+  --max-width: 430px;
+  max-width: 430px;
+  width: 430px;
+  line-height: 24px;
+}
+
+
+
+.chatbot-popover {
+  --offset-x: -5px;
+  --offset-y: 6px;
+  --width: 450px !important;
+}
+
+.text-area-style {
+  height: 280px;
+}
+
+
+
+.maximized-popover {
+  --offset-x: -5px;
+  --offset-y: 53px;
+  --width: 1085px !important;
+  --height: 660px;
+
+  .text-area-style {
+    height: calc(100vh - 265px)
+  }
+}
+
+// height: calc(100vh - 255px)
